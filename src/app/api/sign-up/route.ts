@@ -5,7 +5,7 @@ import { sendVerificationEmail } from '@/helpers/sendVerificationEmail';
 
 export async function POST(request: Request) {
   await dbConnect();
-
+  
   try {
     const { username, email, password } = await request.json();
 
@@ -87,6 +87,7 @@ export async function POST(request: Request) {
     );
   } catch (error) {
     console.error('Error registering user:', error);
+    console.log("Errpr")
     return Response.json(
       {
         success: false,
